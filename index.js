@@ -60,9 +60,7 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
-}
+const multiply =(a,b)=> a * b; 
 
 
 
@@ -76,9 +74,7 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
-}
+const dogYears =(age)=> age * 7;
 
 
 
@@ -109,8 +105,20 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+const hungryDog =(weight, age)=>{
+  if (age < 1){
+    return (
+      age <= 0.335 ? weight * 0.10 :
+      age <= 0.582 ? weight * 0.05 :
+      weight * 0.04
+    )
+  }
+  return(
+    weight <= 5 ? weight * 0.05 : 
+    weight <= 10 ? weight * 0.04 :
+    weight <= 15 ? weight * 0.03 :
+    weight * 0.02
+  )
 }
 
 
@@ -136,8 +144,11 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-  /*add your code here*/
+const game =(user, computer)=> {
+ let dict = {'paper':0, 'scissors':1, 'rock':2}
+ let dif = dict[user] - dict[computer]
+ return (!dif ? "it's a tie" :
+ (dif == 2 || dif == -1) ? "you lose!" : "you win!") 
 }
 
 
@@ -153,9 +164,7 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
-}
+const miles =(km)=> parseFloat((km / 1.609344).toFixed(5))
 
 
 
@@ -167,9 +176,7 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
-}
+const feet =(cm)=> cm / 30.48
 
 
 
@@ -183,8 +190,8 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(num){
+  return `${num} bottles of soda on the wall, ${num} bottles of soda, take one down pass it around ${num-1} bottles of soda on the wall`
 }
 
 
@@ -203,8 +210,21 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+  let score_num = score.toString()
+  let dict ={
+    '9': 'you got an A',
+    '8': 'you got a B',
+    '7': 'you got a C',
+    '6': 'you got a D',
+  }
+  if(score_num == '100'){
+    return 'you got an A' 
+  }
+  if(score_num.length == 2){
+    return score_num.charAt(0) in dict ? dict[score_num.charAt(0)] : 'you got an F'
+  }
+    return 'you got an F'
 }
 
 
